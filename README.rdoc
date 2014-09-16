@@ -1,0 +1,7 @@
+== How to use this
+
+* run `bundle install`
+* start your server
+* start up ngrok and expose the port your server is running on (3000)
+* replace NGROK_URL in the index view with your ngrok url
+* Click purchase button and be redirected to payfast

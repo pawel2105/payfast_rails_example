@@ -1,0 +1,51 @@
+<div class="container">
+  <h1 class='header'>Fake shopping cart</h1>
+
+  <table class='cart'>
+    <th class='li-header'>Item</th>
+    <th class='cost'>Price</th>
+
+    <tr>
+      <td>First thing</td>
+      <td class='cost'>R25,00</td>
+    </tr>
+
+    <tr>
+      <td>Second thing</td>
+      <td class='cost'>R15,00</td>
+    </tr>
+
+    <tr>
+      <td>Third thing</td>
+      <td class='cost'>R35,00</td>
+    </tr>
+
+    <tr>
+      <td>Subtotal</td>
+      <td class='cost'>R75,00</td>
+    </tr>
+
+    <tr class='total'>
+      <td>Total</td>
+      <td class='cost'>R75,00</td>
+    </tr>
+  </table>
+
+  <%= payment_service_for 5, Rails.configuration.offsite_payments['payfast']['login'], amount: 50, service: :pay_fast do |service| %>
+
+    <% service.item_name 'A fake test product' %>
+    <% service.currency 'ZAR' %>
+    <% service.return_url 'http://NGROK_URL.ngrok.com/pay_fast/success' %>
+    <% service.cancel_url 'http://NGROK_URL.ngrok.com/pay_fast/cancel' %>
+    <% service.notify_url 'http://NGROK_URL.ngrok.com/pay_fast/paid' %>
+
+    <%# service.notify_url url_for(:only_path => false, :action => 'notify') %>
+    <%# service.return_url url_for(:only_path => false, :action => 'done') %>
+    <%# service.cancel_return_url 'http://mystore.com' %>
+
+    <% service.merchant_id Rails.configuration.offsite_payments['payfast']['merchant_id'].to_i %>
+    <% service.merchant_key Rails.configuration.offsite_payments['payfast']['merchant_key'] %>
+
+    <%= submit_tag "Pay!", class: 'button blue', style: 'padding-bottom: 3px;' %>
+  <% end %>
+</div>

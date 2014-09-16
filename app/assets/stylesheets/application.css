@@ -1,0 +1,47 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+  font-family:"Gill Sans", "Gill Sans MT", Sans-Serif;
+}
+.container {
+    width:400px;
+    margin:120px auto 0px auto;
+}
+
+.header {
+    width:400px;
+    margin-bottom:12px;
+    text-align:center;
+    color:#ff4b33;
+    font-size:40px;
+    padding-bottom:8px;
+    border-bottom:2px solid #ff4b33;
+}
+
+.total {
+  font-weight: bold;
+}
+
+.cart {
+  width: 100%;
+}
+
+.cost {
+  text-align: right;
+}
+
+.li-header {
+  text-align: left;
+}

@@ -1,0 +1,6 @@
+payfast:
+  test_mode: true
+  login: sbtm01@payfast.co.za
+  merchant_id: 10000100
+  merchant_key: 46f0cd694581a
+  password: clientpass
